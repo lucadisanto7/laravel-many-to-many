@@ -107,6 +107,13 @@ class ProjectController extends Controller
         }
         $form_data['slug'] = Project::generateSlug($form_data['name']);
         $project->update($form_data);
+
+        if($request->has('technologies')){
+            $project->technologies()->sync($request->technologies);
+        }
+        else{
+            $project->technologies()->sync([]);
+        }
         return redirect()->route('admin.projects.index');
     }
 
