@@ -40,6 +40,16 @@
                             </select>
                         </div>
                         <div class="col-12">
+                            <label for="" class="control-label">Seleziona tecnologie</label>
+                            <div>
+                                @foreach ($technologies as $technology)
+                                    <div class="form-check-inline">
+                                        <input type="checkbox" name="" id="" class="form-check-inline" value="{{ $technology->id }}">
+                                        <span>{{ $technology->name }}</span>
+                                @endforeach
+                            </div>    
+                        </div>
+                        <div class="col-12">
                             <label for="" class="control-label">Sommario Progetto</label>
                             <textarea name="summary" id="" cols="30" rows="10" class="form-control form-control-sm" >{{ old('summary','summary')}}</textarea>
                         </div>
